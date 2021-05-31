@@ -1,6 +1,6 @@
-# SCGI Fano Web Framework Skeleton Application
+# Mail logger Fano Framework web application demo
 
-[SCGI](https://python.ca/scgi/protocol.txt) web application skeleton using Fano Framework, Pascal web application framework
+Example Fano Framework web application to demonstrates how to write log to email address in background thread.
 
 This project is generated using [Fano CLI](https://github.com/fanoframework/fano-cli)
 command line tools to help scaffolding web application using Fano Framework.
@@ -19,62 +19,20 @@ command line tools to help scaffolding web application using Fano Framework.
 ### TLDR
 Make sure all requirements are met. Run
 ```
-$ git clone https://your-repo-hostname/fano-app.git --recursive
-$ cd fano-app
+$ git clone https://github.com/fanoframework/fano-logger-mail.git --recursive
+$ cd fano-logger-mail
 $ ./tools/config.setup.sh
 $ ./build.sh
-$ sudo fanocli --deploy-scgi=fano-app.fano
+$ sudo fanocli --deploy-scgi=mailer-logger.fano
 $ ./bin/app.cgi
 ```
-Open internet browser and go to `http://fano-app.fano`. You should see application.
+Open internet browser and go to `http://mailer-logger.fano`. You should see application.
 
-### Free Pascal installation
+On FreeBSD, before running `build.sh`, replace `Tlinux` with `Tfreebsd` in `build.cfg`.
 
-Make sure [Free Pascal](https://www.freepascal.org/) is installed. Run
+### Setup SMTP server credential
 
-    $ fpc -i
-
-If you see something like `Free Pascal Compiler version 3.0.4`,  you are good to go.
-
-Clone this repository
-
-    $ git clone https://your-repo-hostname/fano-app.git --recursive
-
-`--recursive` is needed so git also pull [Fano](https://github.com/fanoframework/fano) repository.
-
-If you are missing `--recursive` when you clone, you may find that `vendor/fano` directory is empty. In this case run
-
-    $ git submodule update --init
-
-To update Fano to its latest commit, run
-
-    $ git checkout master && git submodule foreach --recursive git pull origin master
-
-Above command will checkout to `master` branch of this repository and pull latest update from `master` branch of [Fano](https://github.com/fanoframework/fano) repository.
-
-Copy `*.cfg.sample` to `*.cfg`.
-Make adjustment as you need in `build.cfg`, `build.prod.cfg`, `build.dev.cfg`
-and run `build.sh` shell script (if you are on Windows, then `build.cmd`).
-
-These `*.cfg` files contain some Free Pascal compiler switches that you can turn on/off to change how executable is compiled and generated. For complete
-explanation on available compiler switches, consult Free Pascal documentation.
-
-Also copy `src/config/config.json.sample` to `src/config/config.json` and edit
-configuration as needed. For example, you may need to change `baseUrl` to match your own base url so JavaScript or CSS stylesheets point to correct URL.
-
-    $ cp config/config.json.sample config/config.json
-    $ cp build.prod.cfg.sample build.prod.cfg
-    $ cp build.dev.cfg.sample build.dev.cfg
-    $ cp build.cfg.sample build.cfg
-    $ ./build.sh
-
-`tools/config.setup.sh` shell script is provided to simplify copying those
-configuration files. Following shell command is similar to command above.
-
-    $ ./tools/config.setup.sh
-    $ ./build.sh
-
-By default, it will output binary executable in `public` directory.
+Edit `config/config.json` and replace `mailer` key with credential of SMTP server. For our example we use mailtrap.io to allow sending fake email without afraid become spammer.
 
 ### Build for different environment
 
