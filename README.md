@@ -1,6 +1,6 @@
 # Mail logger Fano Framework web application demo
 
-Example Fano Framework web application to demonstrates how to write log to email address in background thread.
+Example Fano Framework web application to demonstrates how to [write log](https://fanoframework.github.io/utilities/using-loggers/) to email address in background thread. Read [Sending email](https://fanoframework.github.io/utilities/sending-email/) with Fano Framework for more information.
 
 This project is generated using [Fano CLI](https://github.com/fanoframework/fano-cli)
 command line tools to help scaffolding web application using Fano Framework.
@@ -13,7 +13,7 @@ command line tools to help scaffolding web application using Fano Framework.
 - [Fano CLI](https://github.com/fanoframework/fano-cli)
 - Web Server (Apache, nginx)
 - Administrative privilege for setting up virtual host
-- [Synapse library](http://synapse.ararat.cz/doku.php/download) or [Indy](https://www.indyproject.org/download/) (optional).
+- [Sendmail](https://wiki.debian.org/sSMTP) or [Synapse library](http://synapse.ararat.cz/doku.php/download) or [Indy](https://www.indyproject.org/download/).
 
 ## Installation
 
