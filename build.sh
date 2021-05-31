@@ -11,6 +11,13 @@
 # Build script for Linux
 #------------------------------------------------------
 
+if [ -z "${INDY_DIR}" ]; then
+export INDY_DIR="~/fun/Indy"
+fi
+
+if [ -z "${SYNAPSE_DIR}" ]; then
+export SYNAPSE_DIR="~/fun/synapse40"
+fi
 
 if [ -z "${FANO_DIR}" ]; then
 export FANO_DIR="vendor/fano"
@@ -44,4 +51,4 @@ if [ -z "${FPC_BIN}" ]; then
 export FPC_BIN="fpc"
 fi
 
-${FPC_BIN} @vendor/fano/fano.cfg @build.cfg ${USER_APP_DIR}/${SOURCE_PROGRAM_NAME}
+${FPC_BIN} @defines.cfg @vendor/fano/fano.cfg @build.cfg ${USER_APP_DIR}/${SOURCE_PROGRAM_NAME}

@@ -1,0 +1,19 @@
+{
+    "appName" : "Mail logger",
+    "baseUrl" : "http://mailer-logger.fano",
+
+    "mailer" : {
+        "host" : "smtp.mailtrap.io",
+        "port" : 2525,
+        "username" : "your-username",
+        "password" : "your-password",
+        "useTLS" : false,
+        "useSSL" : false
+    },
+
+    "logger" : {
+        "mailer" : {
+            "recipient" : "recipient@example.com"
+        }
+    }
+}
