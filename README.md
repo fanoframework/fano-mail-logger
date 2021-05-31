@@ -13,6 +13,7 @@ command line tools to help scaffolding web application using Fano Framework.
 - [Fano CLI](https://github.com/fanoframework/fano-cli)
 - Web Server (Apache, nginx)
 - Administrative privilege for setting up virtual host
+- [Synapse library](http://synapse.ararat.cz/doku.php/download) or [Indy](https://www.indyproject.org/download/) (optional).
 
 ## Installation
 
@@ -31,8 +32,27 @@ Open internet browser and go to `http://mailer-logger.fano`. You should see appl
 On FreeBSD, before running `build.sh`, replace `Tlinux` with `Tfreebsd` in `build.cfg`.
 
 ### Setup SMTP server credential
+Before running application, edit `config/config.json` and replace `mailer` key with credential of SMTP server. For our example we use mailtrap.io service to allow sending fake email without afraid become spammer.
 
-Edit `config/config.json` and replace `mailer` key with credential of SMTP server. For our example we use mailtrap.io to allow sending fake email without afraid become spammer.
+### Use Synapse library to send mail
+
+By default, this demo application use `sendmail` binary to send email. If you want to use Synapse library to send email, enable conditional compilation defines `-dUSE_SYNAPSE` in `defines.cfg`.
+You may need to locate Synapse library sources using `SYNAPSE_DIR` environment variable
+
+```
+$ SYNAPSE_DIR=/path/to/synapse ./build.sh
+```
+If `SYNAPSE_DIR` is not set, it is assumed in `~/fun/Synapse40` directory.
+
+### Use Indy library to send mail
+
+If you want to use Indy library to send email, enable conditional compilation defines `-dUSE_INDY` in `defines.cfg`.
+You may need to locate Indy library sources using `INDY_DIR` environment variable
+
+```
+$ INDY_DIR=/path/to/synapse ./build.sh
+```
+If `INDY_DIR` is not set, it is assumed in `~/fun/Indy` directory.
 
 ### Build for different environment
 
